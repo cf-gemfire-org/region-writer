@@ -1,0 +1,7 @@
+<root>
+    <item name='org.apache.geode.cache.client.ClientCache org.apache.geode.cache.client.ClientRegionFactory&lt;K,V&gt; createClientRegionFactory(org.apache.geode.cache.client.ClientRegionShortcut)'>
+        <annotation name='org.jetbrains.annotations.Contract'>
+            <val val="&quot;null -&gt; !null&quot;"/>
+        </annotation>
+    </item>
+</root>

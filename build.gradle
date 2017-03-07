@@ -1,0 +1,30 @@
+buildscript {
+    ext.kotlin_version = '1.1.0'
+    ext.kotlin_version = '1.0.0'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = 'regionwriter.AppKt'
+
+defaultTasks 'run'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile group: 'org.apache.geode', name: 'geode-core', version: '1.0.0-incubating'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.7"
+}
