@@ -13,10 +13,13 @@ public class ClientAuthInitialize implements AuthInitialize {
 
     public static final String USER_NAME = "security-username";
     public static final String PASSWORD = "security-password";
+    public static String clientUsername;
+    public static String clientPassword;
 
     public static AuthInitialize create() {
         return new ClientAuthInitialize();
     }
+
 
     @Override
     public void close() {
@@ -27,8 +30,8 @@ public class ClientAuthInitialize implements AuthInitialize {
                                      boolean arg2) throws AuthenticationFailedException {
         Properties props = new Properties();
 
-        String username = "operator";
-        String password = "operator";
+        String username = clientUsername;
+        String password = clientPassword;
         props.put(USER_NAME, username);
         props.put(PASSWORD, password);
         return props;

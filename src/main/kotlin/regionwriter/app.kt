@@ -18,11 +18,17 @@ fun main(args: Array<String>) {
     var valueSize = args[2].toInt()
     var regionName = args[3]
 
+    var uri = URI.create(locatorUrl)
+
+    var userInfo = uri.userInfo.split(":".toRegex(), 0)
+    ClientAuthInitialize.clientUsername = userInfo[0]
+    ClientAuthInitialize.clientPassword = userInfo[1]
+
     var props = Properties();
     props.setProperty("security-client-auth-init", "regionwriter.ClientAuthInitialize.create")
     var ccf = ClientCacheFactory(props)
 
-    var uri = URI.create(locatorUrl)
+
     ccf.addPoolLocator(uri.host, uri.port)
 
     var client = ccf.create()
